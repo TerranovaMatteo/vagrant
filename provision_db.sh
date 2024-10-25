@@ -1,11 +1,11 @@
 #!/bin/bash
 
-sudo apt-get update -y
+apt-get update -y
 
 # installazione mariadb
-sudo apt-get install -y mariadb-server
-sudo systemctl start mariadb
-sudo systemctl enable mariadb
+apt-get install -y mariadb-server
+systemctl start mariadb
+systemctl enable mariadb
 
 # Configurazione di MariaDB per accettare connessioni da altre macchine
 sudo sed -i "s/bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/mariadb.conf.d/50-server.cnf
@@ -19,4 +19,4 @@ FLUSH PRIVILEGES;
 EOF
 
 #ricaricare il db
-sudo systemctl restart mariadb
+systemctl restart mariadb
